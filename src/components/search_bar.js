@@ -19,10 +19,10 @@ class SearchBar extends Component {
   }
 
   // Every class-based React component needs to have a render method
+  // A controlled field is an element whose value is set by the state
   render() {
     return (
       <div>
-        // A controlled field is an element whose value is set by the state
         <input
         value={this.state.term}
         onChange={event => this.setState({ term: event.target.value })}/>

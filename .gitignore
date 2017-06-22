@@ -3,6 +3,7 @@ bundle.js
 npm-debug.log
 .DS_Store
 .env
+.env.default
 
 # IntelliJ
 *.iml
