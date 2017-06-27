@@ -13,18 +13,25 @@ class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { videos: [] };
+    this.state = {
+      videos: [],
+      selectedVideo: null
+    };
 
     // Downwards data-flow => only the most parent component should be
     // responsible for fetching data.
     YTSearch({ key: API_KEY, term: 'surfboards' }, (videos) => {
-      this.setState({ videos }); // making use of ES6 function videos: videos
+      this.setState({
+        videos,
+        selectedVideo: videos[0]
+      }); // making use of ES6 function videos: videos
     });
   }
   render() {
     return (
       <div>
         <SearchBar />
+        <VideoDetail video={ this.state.selectedVideo }/>
         <VideoList videos={ this.state.videos } />
       </div>
     );
