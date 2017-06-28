@@ -22,10 +22,10 @@ class SearchBar extends Component {
   // A controlled field is an element whose value is set by the state
   render() {
     return (
-      <div>
+      <div className="search-bar">
         <input
         value={this.state.term}
-        onChange={event => this.setState({ term: event.target.value })}/>
+        onChange={event => this.onInputChange(event.target.value)}/>
       </div>
     )
   }
@@ -33,8 +33,9 @@ class SearchBar extends Component {
   // Event handler is a function that runs whenever the event occurs.
   // All browser events come with an event payload that describes the context
   // in which the event has occurred.
-  onInputChange(event) {
-      console.log(event.target.value);
+  onInputChange(term) {
+      this.setState({ term });
+      this.props.onSearchTermChange(term);
   }
 }
 
